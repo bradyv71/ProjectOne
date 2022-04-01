@@ -1,0 +1,28 @@
+﻿@model Trip
+@{
+    ViewData["Title"] = "Add";
+
+    var accomodation = TempData["Accomodation"];
+}
+<header>
+    <h1>My Trip Log</h1>
+</header>
+<h1>Add Trip Destination and Dates</h1>
+<form action="@Url.Action("Add", "Trip")" method="post">
+    <label for="Destination">Destination:</label><br>
+    <input type="text" id="Destination" name="Destination"><br>
+
+    <label for="Accomodations">Accomodations:</label><br>
+    <input type="text" id="Accomodations" name="Accomodation"><br>
+
+    <label for="StartDate">Start Date:</label><br>
+    <input type="datetime" id="StartDate" name="StartDate"><br>
+
+    <label for="EndDate">EndDate:</label><br>
+    <input type="datetime" id="EndDate" name="EndDate"><br>
+    <button class="btn-outline-primary" type="submit">Next</button>
+   
+
+</form>
+<a class="btn btn-outline-primary" href="@Url.Action("Clear", "Home")">Cancel</a>
+

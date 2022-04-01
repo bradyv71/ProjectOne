@@ -1,0 +1,22 @@
+﻿@model Trip
+@{
+    ViewData["Title"] = "Add3";
+}
+<header>
+    <h1>My Trip Log</h1>
+</header>
+<h1>Add things to do in @Model.Destination</h1>
+<form action="@Url.Action("Save", "Trip")" method="post">
+    <label for="ThingToDo1"></label><br>
+    <input type="text" id="ThingToDo1" name="ThingToDo1"><br>
+
+    <label for="ThingToDo2"></label><br>
+    <input type="text" id="ThingToDo2" name="ThingToDo2"><br>
+
+    <label for="ThingToDo3"></label><br>
+    <input type="text" id="ThingToDo3" name="ThingToDo3"><br>
+
+    <button class="btn-outline-primary" type="submit">Save</button>
+    
+</form>
+<a class="btn" href="@Url.Action("Clear", "Home")">Cancel</a>

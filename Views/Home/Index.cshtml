@@ -1,0 +1,43 @@
+﻿@model TripListModel
+@{
+    ViewData["Title"] = "Home Page";
+    var successMessage = (string)TempData["SuccessMessage"];
+}
+<header>
+    <h1>My Trip Log</h1>
+</header>
+<body>
+     @if(!string.IsNullOrEmpty(successMessage))
+     {
+        <p>@successMessage</p>
+     };
+
+
+    <a href="@Url.Action("Add", "Trip")">Add Trip</a>
+    <div class="inform">
+        <table>
+            <tr>
+                <th>Destination</th>
+                <th>Accomodations</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Things To Do</th>
+
+            </tr>
+
+
+            @foreach (var trip in Model.Trips)
+            {
+                <tr>
+                    <td>@trip.Destination</td>
+                    <td>@trip.Accomodation</td>
+                    <td>@trip.StartDate.ToShortDateString()</td>
+                    <td>@trip.EndDate.ToShortDateString()</td>
+                    <td>@trip.ThingToDo1<br />@trip.ThingToDo2<br />@trip.ThingToDo3</td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
